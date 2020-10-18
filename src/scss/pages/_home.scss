@@ -1,0 +1,17 @@
+/*** Home Page ***/
+
+.home {
+  h1 {
+    margin: 46px 0 23px;
+    border-bottom: 1px solid #eee;
+  }
+
+  // Features
+  #block-features {
+    width: 100vw;
+    --a: calc(-50vw + 50%);
+    margin-left: calc(var(--a) - 15px);
+    background-color: rgb(173, 201, 197);
+  }
+  
+}

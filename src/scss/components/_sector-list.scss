@@ -1,0 +1,144 @@
+/**** Sector list ****/
+
+/* View Page Styles */
+.view-display-id-page_1,
+.view-display-id-page_2 {
+
+  .view-header {
+    display: none;
+  }
+
+  .feed-icons {
+    display: none;
+  }
+
+  .view-content {
+    .result {
+      padding: 20px;
+    }
+
+    .result:nth-child(odd) {
+      background-color: $light-grey;
+    }
+
+    .views-field {
+      //display: flex;
+    }
+
+    .views-field .views-label {
+      width: 150px;
+
+      @include media-breakpoint-up(md) {
+        width: 175px;
+      }
+    }
+
+    .views-field .field-content {
+      width: 100%;
+    }
+
+    .views-field > ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .views-field > ul li {
+      display: flex;
+    }
+
+    .views-field > ul li:after {
+      content: ",";
+      margin-right: 6px;
+    }
+    .views-field > ul li:last-child:after {
+      content: "";
+    }
+
+    .views-field > ul li .field-label {
+      display: none;
+    }
+
+    .views-field > ul li:first-of-type .field-label {
+      display: inline;
+    }
+
+    .views-field .description {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    /*
+    .province .field-label {
+      display: none;
+    }
+
+    .province:first-of-type .field-label {
+      display: inline;
+    }
+    */
+
+  }
+
+  .view-display-id-attachment_1 {
+    background-color: $light-green;
+    padding: 25px 20px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 50px 30px;
+    }
+  }
+}
+
+.view-display-id-page_1 {
+  .view-filters {
+    background-color: $light-green;
+    padding: 25px 20px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 50px 30px;
+    }
+  }
+
+  .view-content > .views-row { display: none; }
+}
+
+.sector-list > ul {
+  list-style: none;
+  display: grid;
+  column-gap           : 25px;
+  row-gap              : 25px;
+  grid-template-columns: 1fr;
+  padding              : 0 20px;
+  margin-bottom: 50px;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  li {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .views-field-name {
+      font-size: 14px;
+      line-height: 1.4em;
+      margin: 30px 0;
+      text-align: center;
+    }
+  }
+}

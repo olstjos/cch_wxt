@@ -1,0 +1,11 @@
+{
+  "name": "cch_wxt",
+  "version": "1.0.0",
+  "description": "OCA Canadian Consumer Hub",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^5.0.5"
+  }
+}

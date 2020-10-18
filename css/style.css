@@ -1,0 +1,165 @@
+/*** Footer ***/
+footer#wb-info .brand {
+  background-color: transparent; }
+footer#wb-info nav {
+  padding-bottom: 1em; }
+
+/*** Home Page ***/
+.home h1 {
+  margin: 46px 0 23px;
+  border-bottom: 1px solid #eee; }
+.home #block-features {
+  width: 100vw;
+  --a: calc(-50vw + 50%);
+  margin-left: calc(var(--a) - 15px);
+  background-color: #adc9c5; }
+
+/**** Sector list ****/
+/* View Page Styles */
+.view-display-id-page_1 .view-header,
+.view-display-id-page_2 .view-header {
+  display: none; }
+.view-display-id-page_1 .feed-icons,
+.view-display-id-page_2 .feed-icons {
+  display: none; }
+.view-display-id-page_1 .view-content,
+.view-display-id-page_2 .view-content {
+    /*
+    .province .field-label {
+      display: none;
+    }
+
+    .province:first-of-type .field-label {
+      display: inline;
+    }
+    */ }
+  .view-display-id-page_1 .view-content .result,
+  .view-display-id-page_2 .view-content .result {
+    padding: 20px; }
+  .view-display-id-page_1 .view-content .result:nth-child(odd),
+  .view-display-id-page_2 .view-content .result:nth-child(odd) {
+    background-color: #f5f5f5; }
+  .view-display-id-page_1 .view-content .views-field .views-label,
+  .view-display-id-page_2 .view-content .views-field .views-label {
+    width: 150px; }
+    @media (min-width: 768px) {
+      .view-display-id-page_1 .view-content .views-field .views-label,
+      .view-display-id-page_2 .view-content .views-field .views-label {
+        width: 175px; } }
+  .view-display-id-page_1 .view-content .views-field .field-content,
+  .view-display-id-page_2 .view-content .views-field .field-content {
+    width: 100%; }
+  .view-display-id-page_1 .view-content .views-field > ul,
+  .view-display-id-page_2 .view-content .views-field > ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; }
+  .view-display-id-page_1 .view-content .views-field > ul li,
+  .view-display-id-page_2 .view-content .views-field > ul li {
+    display: flex; }
+  .view-display-id-page_1 .view-content .views-field > ul li:after,
+  .view-display-id-page_2 .view-content .views-field > ul li:after {
+    content: ",";
+    margin-right: 6px; }
+  .view-display-id-page_1 .view-content .views-field > ul li:last-child:after,
+  .view-display-id-page_2 .view-content .views-field > ul li:last-child:after {
+    content: ""; }
+  .view-display-id-page_1 .view-content .views-field > ul li .field-label,
+  .view-display-id-page_2 .view-content .views-field > ul li .field-label {
+    display: none; }
+  .view-display-id-page_1 .view-content .views-field > ul li:first-of-type .field-label,
+  .view-display-id-page_2 .view-content .views-field > ul li:first-of-type .field-label {
+    display: inline; }
+  .view-display-id-page_1 .view-content .views-field .description,
+  .view-display-id-page_2 .view-content .views-field .description {
+    font-weight: bold;
+    margin: 10px 0; }
+.view-display-id-page_1 .view-display-id-attachment_1,
+.view-display-id-page_2 .view-display-id-attachment_1 {
+  background-color: #adc9c5;
+  padding: 25px 20px; }
+  @media (min-width: 1024px) {
+    .view-display-id-page_1 .view-display-id-attachment_1,
+    .view-display-id-page_2 .view-display-id-attachment_1 {
+      padding: 50px 30px; } }
+
+.view-display-id-page_1 .view-filters {
+  background-color: #adc9c5;
+  padding: 25px 20px; }
+  @media (min-width: 1024px) {
+    .view-display-id-page_1 .view-filters {
+      padding: 50px 30px; } }
+.view-display-id-page_1 .view-content > .views-row {
+  display: none; }
+
+.sector-list > ul {
+  list-style: none;
+  display: grid;
+  column-gap: 25px;
+  row-gap: 25px;
+  grid-template-columns: 1fr;
+  padding: 0 20px;
+  margin-bottom: 50px; }
+  @media (min-width: 576px) {
+    .sector-list > ul {
+      grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 768px) {
+    .sector-list > ul {
+      grid-template-columns: 1fr 1fr 1fr; } }
+  @media (min-width: 1024px) {
+    .sector-list > ul {
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  @media (min-width: 1200px) {
+    .sector-list > ul {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; } }
+  .sector-list > ul li {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden; }
+    .sector-list > ul li .views-field-name {
+      font-size: 14px;
+      line-height: 1.4em;
+      margin: 30px 0;
+      text-align: center; }
+
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+.site-name {
+  background-color: #38414d; }
+
+.site-name .navbar-brand {
+  color: white;
+  text-decoration: none; }
+
+.site-name .navbar-brand:hover {
+  color: white;
+  text-decoration: underline; }
+
+/*** Sector Search block ***/
+#wb-sm {
+  background: #E1E4E7;
+  border-bottom: 1px solid #D3D4D8;
+  border-top: 1px solid #D3D4D8; }
+
+#wb-sm .menu {
+  text-shadow: none;
+  width: auto; }
+
+#wb-sm .menu > li > a {
+  color: #335075;
+  font-weight: bold;
+  padding-bottom: calc(1em - 1px);
+  padding-top: calc(1em - 1px); }
+
+#wb-sm .menu > li > a:hover {
+  color: white; }
+
+/*** Menu ***/
+.home .gcweb-menu,
+.gcweb-menu {
+  border-top: none; }
+
+/*# sourceMappingURL=style.css.map */

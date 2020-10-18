@@ -1,0 +1,31 @@
+name: 'CCH theme'
+description: 'Sub theme for Canadian Consumer Hub CCH based on OCA WXT Bootstrap'
+type: theme
+core: 8.x
+package: 'WxT'
+base theme: wxt_bootstrap
+
+regions:
+  branding: 'Branding'
+  breadcrumb: 'Breadcrumbs'
+  language_toggle: 'Language Toggle'
+  banner: 'Banner'
+  search: 'Search'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  header: 'Header'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  content_footer: 'Content Footer'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - 'cch_wxt/global-styling'
+libraries-extend:
+  bootstrap/framework:
+    - 'wxt_bootstrap/drupal.wxt_bootstrap'
