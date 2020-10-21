@@ -71,9 +71,11 @@ footer#wb-info nav {
   .view-display-id-page_1 .view-content .views-field > ul li:first-of-type .field-label,
   .view-display-id-page_2 .view-content .views-field > ul li:first-of-type .field-label {
     display: inline; }
+  .view-display-id-page_1 .view-content .views-field .external-link,
+  .view-display-id-page_2 .view-content .views-field .external-link {
+    font-size: 105%; }
   .view-display-id-page_1 .view-content .views-field .description,
   .view-display-id-page_2 .view-content .views-field .description {
-    font-weight: bold;
     margin: 10px 0; }
 .view-display-id-page_1 .view-display-id-attachment_1,
 .view-display-id-page_2 .view-display-id-attachment_1 {

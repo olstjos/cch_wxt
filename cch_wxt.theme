@@ -1,5 +1,6 @@
 <?php
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * @file
@@ -48,8 +49,26 @@ function cch_wxt_preprocess(&$variables, $hook) {
 function cch_wxt_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
+  $nid = $variables['row']->nid;
 
-  if (1==2 && $view->id() == 'sector_browse' && $view->current_display == 'attachment_1') {
+  if ($view->id() == 'sector_browse' && $view->current_display == 'page_2') {
+    // Sector results
+    switch($field->field)
+    {
+      case 'title':
+        $node = Node::load($nid);
+        $isOtherLang = $node->field_link_other_lang->getString() == 1;
+        
+        if ($isOtherLang) {
+          $variables['output'] .= sprintf(' [%s]', t('link in other language'));
+          $variables['output'] = \Drupal\Core\Render\Markup::create($variables['output']);
+        }
+        break;
+      default:
+        break;
+    }
+
+  } else if (1==2 && $view->id() == 'sector_browse' && $view->current_display == 'attachment_1') {
     switch($field->field)
     {
       case 'name':
