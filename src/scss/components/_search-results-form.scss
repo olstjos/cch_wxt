@@ -1,0 +1,18 @@
+.cch-search-form {
+
+  .form-item-keys {
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .form-inline .form-group {
+    margin-top: 10px;
+  }
+}
+
+body.path-search {
+  form.search-form { display: none; }
+}

@@ -193,5 +193,80 @@ function cch_wxt_preprocess_views_view(&$variables) {
 function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-sector-browse-page-1') {
     $form['#action'] = str_replace('sector/term', 'sector/term/results', $form['#action']);
+  } else if ($form_id == 'search_form') {
+    //$form_state['keywords']['#required'] = false;
+    //$form_state['keywords-fieldset']['or']['#required'] = false;
+    $form['advanced']['keywords']['#required'] = false;
+    $form['advanced']['keywords-fieldset']['keywords']['or']['#required'] = false;
+    /*
+    print "<pre>";
+    print_r( get_class($form_state) );
+    print_r( ($form['advanced']) );
+    die();
+    unset($form);
+    */
   }
 }
+
+function cch_wxt_preprocess_search_result(&$variables) {
+  $node = $variables['result']['node'];
+
+  $variables['external'] = false;
+  if ($node->bundle() == 'info_link' || $node->bundle() == 'complaint_link') {
+    $url = $node->bundle() == 'info_link' ? $node->field_link_info->getString():$node->field_link_complaint->getString();
+    $variables['url'] = $url;
+    $variables['external'] = true;
+    $variables['description'] = strip_tags($node->body->value);
+
+    // Sector
+    $sectorTerms = $node->get('field_sector')->referencedEntities();
+    $sectors = [];
+    foreach ($sectorTerms as $term) {
+      $sectors[] = $term->label();
+    }
+    $variables['sectors'] = implode(', ', $sectors);
+
+    // Province
+    $provinceTerms = $node->get('field_province')->referencedEntities();
+    $provinces = [];
+    foreach ($provinceTerms as $term) {
+      $provinces[] = $term->label();
+    }
+    $variables['provinces'] = implode(', ', $provinces);
+  }
+
+  /*
+  print "<pre>";
+  print_r( $variables['info'] );
+  print_r( $variables['snippet'] );
+  print_r( array_keys($variables) );
+  die();
+  */
+}
+
+/**
+ * @param $machine_name
+ *
+ * @return \Drupal\block_content\Entity\BlockContent|\Drupal\Core\Entity\EntityInterface|null
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function getBlockContentByMachineName($machine_name) {
+  // Get the block id from machine name.
+  $query_result = \Drupal::entityTypeManager()
+    ->getStorage('block_content')
+    ->getQuery()
+    ->condition('machine_name', $machine_name)
+    ->range(0, 1)
+    ->execute();
+  // Get the block id.
+  $block_id = reset($query_result);
+  if ($block_id) {
+    $block = \Drupal\block_content\Entity\BlockContent::load($block_id);
+    return $block;
+  }
+  else {
+    return NULL;
+  }
+}
+
