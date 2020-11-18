@@ -13,6 +13,11 @@ footer#wb-info nav {
   --a: calc(-50vw + 50%);
   margin-left: calc(var(--a) - 15px);
   background-color: #adc9c5; }
+.home .view-home-features {
+  width: 100vw;
+  --a: calc(-50vw + 50%);
+  margin-left: calc(var(--a) - 15px);
+  background-color: #adc9c5; }
 
 /**
  * Components

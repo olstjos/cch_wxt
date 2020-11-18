@@ -217,7 +217,10 @@ function cch_wxt_preprocess_search_result(&$variables) {
     $variables['url'] = $url;
     $variables['external'] = true;
     $variables['description'] = strip_tags($node->body->value);
-
+    if($node->field_source->value){
+      $variables['source'] = strip_tags($node->field_source->value);
+    }
+    
     // Sector
     $sectorTerms = $node->get('field_sector')->referencedEntities();
     $sectors = [];

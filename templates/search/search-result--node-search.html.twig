@@ -63,7 +63,13 @@
   <a href="{{ url }}"
     {% if external == true %}
       {{ attributes.setAttribute('target', '_blank') }}
-    {% endif %}>{{ title }}</a>
+    {% endif %}>
+    {% if source %}
+    {{ title }} - {{ source }}
+    {% else %}
+    {{ title }}
+    {% endif %}
+    </a>
 </h3>
 {{ title_suffix }}
 <!--
