@@ -60,10 +60,7 @@
 #}
 {{ title_prefix }}
 <h3{{ title_attributes }}{{ attributes.addClass('mrgn-tp-md') }}>
-  <a href="{{ url }}"
-    {% if external == true %}
-      {{ attributes.setAttribute('target', '_blank') }}
-    {% endif %}>
+  <a href="{{ url }}">
     {% if source %}
     {{ title }} - {{ source }}
     {% else %}

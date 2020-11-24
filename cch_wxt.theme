@@ -36,7 +36,11 @@ function cch_wxt_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 */
 
-function cch_wxt_preprocess_page(&$variables) {
+function cch_wxt_preprocess_page_title(&$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if($route_name=='view.sector_browse.page_2'){
+    $variables['title'] = 'Explore category results';
+  }
 }
 
 function cch_wxt_preprocess(&$variables, $hook) {
@@ -192,6 +196,20 @@ function cch_wxt_preprocess_views_view(&$variables) {
 
 function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-sector-browse-page-1') {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $path_args = explode('/', $current_path);
+    
+    foreach($path_args as $args){
+      if (is_numeric($args)) {
+        $tid=$args;
+      }
+    }
+
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+
+    $name = $term->label();
+
+    $form['actions']['submit']['#value']=t($name);
     $form['#action'] = str_replace('sector/term', 'sector/term/results', $form['#action']);
   } else if ($form_id == 'search_form') {
     //$form_state['keywords']['#required'] = false;
@@ -272,4 +290,9 @@ function getBlockContentByMachineName($machine_name) {
     return NULL;
   }
 }
-
+function cch_wxt_preprocess_input(&$variables) {
+  // Set a placeholder for all search form elements.
+  if ($variables['attributes']['type'] == 'search') {
+    $variables['attributes']['placeholder'] = 'Search the Consumer Hub';
+  }
+}

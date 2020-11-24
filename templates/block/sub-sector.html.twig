@@ -1,0 +1,30 @@
+{# [module]/templates/my-template.html.twig #}
+{% if termdata|length  > 0 %}
+<section class="subsector_block">
+  <div class="block_content">
+    <div class="row">
+      {% for item in termdata %}
+        <div class="col-lg-2 col-md-4">
+          <div class="block_image">
+          {% if (item.provincial == "1") and (item.children == "0") %}
+            <a href="/{{language}}/sector/term/results/{{item.tid}}"><img src = "{{item.image}}" class="img-responsive"></a>
+          {% else %}  
+            <a href="/{{language}}/sector/term/{{item.tid}}"><img src = "{{item.image}}" class="img-responsive"></a>
+          {% endif %}
+          </div>
+          <div class="block_label">
+          {% if (item.provincial == "0") and (item.children == "0") %}
+            <a href="/{{language}}/sector/term/results/{{item.tid}}">{{item.label}}
+            </a>
+          {% else %} 
+            <a href="/{{language}}/sector/term/{{item.tid}}">{{item.label}}
+            </a>
+          {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+      <div class
+    </div>
+  </div>
+</section>
+{% endif %}
