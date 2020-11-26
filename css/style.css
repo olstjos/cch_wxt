@@ -268,4 +268,7 @@ body.path-search form.search-form {
 .gcweb-menu {
   border-top: none; }
 
+.img-thumbnail-custom {
+  max-width: 150px; }
+
 /*# sourceMappingURL=style.css.map */
