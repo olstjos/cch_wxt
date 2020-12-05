@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/*** Footer ***/
+footer#wb-info .brand {
+  background-color: transparent;
+}
+footer#wb-info nav {
+  padding-bottom: 1em;
+}
+@media (min-width: 992px) {
+  footer#wb-info ul.list-unstyled {
+    display: flex;
+  }
+  footer#wb-info ul.list-unstyled li:not(:first-child):before {
+    content: "•";
+  }
+}
+footer#wb-info ul.list-unstyled li {
+  margin-right: 0.7em;
+}
+footer#wb-info ul.list-unstyled li:before {
+  margin-right: 0.7em;
+}
+@media (max-width: 991px) {
+  footer#wb-info ul.list-unstyled li:before {
+    content: "•";
+  }
+}

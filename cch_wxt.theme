@@ -192,6 +192,10 @@ function cch_wxt_preprocess_views_view(&$variables) {
     die();
     */
   }
+  if($view->id() == 'features'){
+   // print_r($variables);
+
+  }
 }
 
 function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
@@ -205,12 +209,16 @@ function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
       }
     }
 
-    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+    if($tid){
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
 
-    $name = $term->label();
+      $name = $term->label();
+  
+      $form['actions']['submit']['#value']=t($name);
+      $form['#action'] = str_replace('sector/term', 'sector/term/results', $form['#action']);
 
-    $form['actions']['submit']['#value']=t($name);
-    $form['#action'] = str_replace('sector/term', 'sector/term/results', $form['#action']);
+    }
+
   } else if ($form_id == 'search_form') {
     //$form_state['keywords']['#required'] = false;
     //$form_state['keywords-fieldset']['or']['#required'] = false;
