@@ -53,9 +53,9 @@ function cch_wxt_preprocess(&$variables, $hook) {
 function cch_wxt_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   $field = $variables['field'];
-  $nid = $variables['row']->nid;
 
   if ($view->id() == 'sector_browse' && $view->current_display == 'page_2') {
+    $nid = $variables['row']->nid;
     // Sector results
     switch($field->field)
     {
@@ -73,6 +73,7 @@ function cch_wxt_preprocess_views_view_field(&$variables) {
     }
 
   } else if (1==2 && $view->id() == 'sector_browse' && $view->current_display == 'attachment_1') {
+    $nid = $variables['row']->nid;
     switch($field->field)
     {
       case 'name':
