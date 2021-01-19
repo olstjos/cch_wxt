@@ -39,13 +39,13 @@
     {% else %}
       {% if icon_position == 'after' %}
         {% if 'edit-submit-sector-browse' == attributes.storage['data-drupal-selector']|render %}
-        <button{{ attributes.addClass(classes) }}>{{ 'Apply' | t }}{{ icon }}</button>{{ children }}
+        <button{{ attributes.addClass(classes) }}>{{ 'Results' | t }}{{ icon }}</button>{{ children }}
         {% else %}
         <button{{ attributes.addClass(classes) }}>{{ label }}{{ icon }}</button>{{ children }}
         {% endif %}
       {% else %}
         {% if 'edit-submit-sector-browse' == attributes.storage['data-drupal-selector']|render %}
-        <button{{ attributes.addClass(classes) }}>{{ icon }}{{ 'Apply' | t }}</button>{{ children }}
+        <button{{ attributes.addClass(classes) }}>{{ icon }}{{ 'Results' | t }}</button>{{ children }}
         {% else %}
         <button{{ attributes.addClass(classes) }}>{{ icon }}{{ label }}</button>{{ children }}
         {% endif %}
