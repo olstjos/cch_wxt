@@ -30,7 +30,7 @@ function cch_wxt_theme_suggestions_page_alter(&$suggestions, $variables) {
 
   // Load theme suggestions for blocks from parent theme.
   foreach ($suggestions as &$suggestion) {
-    $suggestion = str_replace('THEMENAME_', 'wxt_bootstrap_', $suggestion);
+    $suggestion = str_replace('cch_wxt_', 'wxt_bootstrap_', $suggestion);
     echo "<h1>$suggestion</h1>" . '<br/>';
   }
 }
@@ -38,8 +38,8 @@ function cch_wxt_theme_suggestions_page_alter(&$suggestions, $variables) {
 
 function cch_wxt_preprocess_page_title(&$variables) {
   $route_name = \Drupal::routeMatch()->getRouteName();
-  if($route_name=='view.sector_browse.page_2'){
-    $variables['title'] = 'Explore category results';
+  if ($route_name=='view.sector_browse.page_2') {
+    $variables['title'] = t('Explore category results');
   }
 }
 
@@ -302,6 +302,6 @@ function getBlockContentByMachineName($machine_name) {
 function cch_wxt_preprocess_input(&$variables) {
   // Set a placeholder for all search form elements.
   if ($variables['attributes']['type'] == 'search') {
-    $variables['attributes']['placeholder'] = 'Search the Consumer Hub';
+    $variables['attributes']['placeholder'] = t('Search the Consumer Hub');
   }
 }
