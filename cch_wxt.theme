@@ -62,7 +62,7 @@ function cch_wxt_preprocess_views_view_field(&$variables) {
       case 'title':
         $node = Node::load($nid);
         $isOtherLang = $node->field_link_other_lang->getString() == 1;
-        
+
         if ($isOtherLang) {
           $variables['output'] .= sprintf(' [%s]', t('link in other language'));
           $variables['output'] = \Drupal\Core\Render\Markup::create($variables['output']);
@@ -156,6 +156,15 @@ function cch_wxt_preprocess_breadcrumb(&$variables) {
   */
 }
 
+/**
+ * Implements template_preprocess_field().
+ */
+function cch_wxt_preprocess_field__node__field_sector(&$variables) {
+  $element = $variables['element'];
+  //\Drupal::messenger()->addMessage('keys:' . print_r(dump(array_keys($element['#items']), TRUE)), TRUE);//Very good for debugging
+  //\Drupal::messenger()->addMessage('keys:' . print_r(dump($element['#items'], TRUE)), TRUE);//Very good for debugging
+
+}
 
 /**
  * Implements template_preprocess_views_view().
@@ -203,7 +212,7 @@ function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-sector-browse-page-1') {
     $current_path = \Drupal::service('path.current')->getPath();
     $path_args = explode('/', $current_path);
-    
+
     foreach($path_args as $args){
       if (is_numeric($args)) {
         $tid=$args;
@@ -214,7 +223,7 @@ function cch_wxt_form_alter(&$form, &$form_state, $form_id) {
       $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
 
       $name = $term->label();
-  
+
       $form['actions']['submit']['#value']=t($name);
       $form['#action'] = str_replace('sector/term', 'sector/term/results', $form['#action']);
 
@@ -247,7 +256,7 @@ function cch_wxt_preprocess_search_result(&$variables) {
     if($node->field_source->value){
       $variables['source'] = strip_tags($node->field_source->value);
     }
-    
+
     // Sector
     $sectorTerms = $node->get('field_sector')->referencedEntities();
     $sectors = [];
