@@ -1,20 +1,28 @@
+.home .gcweb-menu button[aria-haspopup="true"] {
+    background-color: #26374a;
+    border-color: #26374a;
+    color: #f8f8f8;
+}
+.home .gcweb-menu {
+    border-top: 3px solid #38414d;
+}
+
+
 /*** Footer ***/
-footer#wb-info .brand {
-  background-color: transparent; }
 footer#wb-info nav {
   padding-bottom: 1em; }
 @media (min-width: 992px) {
   footer#wb-info ul.list-unstyled {
-    display: flex; }
+    display: inherit; }
     footer#wb-info ul.list-unstyled li:not(:first-child):before {
-      content: "\2022"; } }
+      /*content: "\2022";*/ } }
 footer#wb-info ul.list-unstyled li {
-  margin-right: 0.7em; }
+  /*margin-right: 0.7em;*/ }
   footer#wb-info ul.list-unstyled li:before {
-    margin-right: .7em; }
+    /*margin-right: .7em;*/ }
     @media (max-width: 991px) {
       footer#wb-info ul.list-unstyled li:before {
-        content: "\2022"; } }
+        /*content: "\2022";*/ } }
 
 /*** Home Page ***/
 .home h1 {
@@ -26,7 +34,7 @@ footer#wb-info ul.list-unstyled li {
   margin-left: calc(var(--a) - 15px);
   background-color: #adc9c5; }
 .home .view-home-features {
-  background-color: #adc9c5; }
+  background-color: inherit; }
   @media (min-width: 768px) {
     .home .view-home-features {
       width: 100vw;
@@ -245,6 +253,10 @@ body.path-search form.search-form {
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
+
+.contextual-links a, #wb-info .landscape .contextual-links a {
+  color: #333333;
+}
 .site-name {
   background-color: #38414d; }
 
@@ -276,9 +288,6 @@ body.path-search form.search-form {
   color: white; }
 
 /*** Menu ***/
-.home .gcweb-menu,
-.gcweb-menu {
-  border-top: none; }
 
 .img-thumbnail-custom {
   max-width: 150px; }

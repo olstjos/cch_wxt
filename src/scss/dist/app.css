@@ -344,11 +344,6 @@ body.path-search form.search-form {
 }
 
 /*** Menu ***/
-.home .gcweb-menu,
-.gcweb-menu {
-  border-top: none;
-}
-
 .img-thumbnail-custom {
   max-width: 150px;
 }

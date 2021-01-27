@@ -1,28 +1,22 @@
 /*** Footer ***/
-
 footer#wb-info {
-  // Brand
-  .brand {
-    background-color: transparent;
-  }
-
   nav {
     padding-bottom: 1em;
   }
   ul.list-unstyled {
     @media (min-width: 992px) {
-      display: flex;
+      display: inherit;
       li:not(:first-child):before {
-        content: "\2022";
+        //content: "\2022";
       }
     }
     li {
-      margin-right: 0.7em;
+      //margin-right: 0.7em;
       &:before {
         @media (max-width: 991px) {
-          content: "\2022";
+          //content: "\2022";
         }
-        margin-right: .7em;
+        //margin-right: .7em;
       }
     }
   }

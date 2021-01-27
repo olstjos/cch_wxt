@@ -56,11 +56,10 @@
  * @see html.html.twig
  */
 #}
- 
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
 {# Navbar #}
-{% if page.navigation or page.navigation_collapsible or 1==1 %}
+{% if page.navigation or page.navigation_collapsible %}
   {% block navbar %}
 
     {%
@@ -76,17 +75,15 @@
           <h2 class="wb-inv">{{ 'Language selection'|t }}</h2>
           {{ page.language_toggle }}
         </section>
+        <div class="row">
+          {{ page.banner }}
+          {{ page.search }}
+        </div>
       </div>
-
-      <div class="row">
-        {{ page.banner }}
-        {{ page.search }}
-      </div>
-
-      <nav class="hidden gcweb-menu" data-trgt="mb-pnl" typeof="SiteNavigationElement">
+      <nav class="gcweb-menu" data-trgt="mb-pnl" typeof="SiteNavigationElement">
         <div class="{{ container }}">
           <h2 class="wb-inv">{{ 'Menu'|t }}</h2>
-          <button type="button" aria-haspopup="true" aria-expanded="false"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">{{ main_menu_label|raw }}</button>
           {{ page.navigation }}
         </div>
       </nav>
@@ -117,7 +114,7 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-md-12'
         ]
       %}
-      <main role="main" property="mainContentOfPage" {{ content_attributes.addClass('main-container', 'js-quickedit-main-content') }}>
+      <main property="mainContentOfPage" {{ content_attributes.addClass(content_classes, 'main-container', container, 'js-quickedit-main-content') }}>
 
       {# Header #}
       {% if page.header %}
@@ -126,7 +123,7 @@
         {% endblock %}
       {% endif %}
 
-      <section class="container">
+      <section>
 
         {# Breadcrumbs #}
         {% if breadcrumb %}
@@ -212,31 +209,29 @@
 
 {% if page.footer %}
   {% if gcweb_cdn_footer_enable %}
-    <footer id="wb-info" role="contentinfo" data-ajax-append="{{ gcweb_cdn_footer_url }}{{ language }}.html .brand">
+    <footer id="wb-info" data-ajax-append="{{ gcweb_cdn_footer_url }}{{ language }}.html .brand">
       <div class="landscape" data-ajax-replace="{{ gcweb_cdn_footer_url }}{{ language }}.html .wb-navcurr"></div>
     </footer>
   {% else %}
     {% block footer %}
       <footer id="wb-info">
-        <div class="container-fluid">
+        <div class="landscape">
           <div class="{{ container }}">
-            <div class="col-md-9">
-              {{ page.footer }}
-            </div>
-
-            <div class="brand col-md-3">
-              <div class="row ">
-                {{ page.branding }}
-                <div class="col-xs-6 visible-sm visible-xs tofpg">
-                  <a href="#wb-cont">{{ 'Top of Page'|t }}<span class="glyphicon glyphicon-chevron-up"></span></a>
-                </div>
-                <div class="col-xs-6 col-lg-12 text-right">
-                  <img src='{{ logo_bottom_svg }}' alt='{{ 'Symbol of the Government of Canada'|t }}' />
-                </div>
+            {{ page.footer }}
+          </div>
+        </div>
+        <div class="brand">
+          <div class="{{ container }}">
+            <div class="row ">
+              {{ page.branding }}
+              <div class="col-xs-6 visible-sm visible-xs tofpg">
+                <a href="#wb-cont">{{ 'Top of Page'|t }}<span class="glyphicon glyphicon-chevron-up"></span></a>
               </div>
-            </div><!-- /brand -->
-          </div><!-- /container -->
-
+              <div class="col-xs-6 col-md-2 text-right pull-right">
+                <img src='{{ logo_bottom_svg }}' alt='{{ 'Symbol of the Government of Canada'|t }}' />
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     {% endblock %}

@@ -17,6 +17,9 @@
  * your custom CSS modifications here.
  */
 
+.contextual-links a, #wb-info .landscape .contextual-links a {
+  color: #333333;
+}
 .site-name {
   background-color: #38414d;
 }
@@ -55,11 +58,6 @@
 }
 
 /*** Menu ***/
-.home .gcweb-menu,
-.gcweb-menu {
-  border-top: none;
-}
-
 .img-thumbnail-custom {
   max-width:150px
 }

@@ -15,7 +15,7 @@
   }
 
   .view-home-features {
-    background-color: rgb(173, 201, 197);
+    background-color: inherit;
     @media (min-width: 768px){
     width: 100vw;
     --a: calc(-50vw + 50%);

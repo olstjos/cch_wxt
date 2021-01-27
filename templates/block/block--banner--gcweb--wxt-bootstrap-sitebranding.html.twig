@@ -1,4 +1,4 @@
-{% extends 'block--bare.html.twig' %}
+{% extends "block--bare.html.twig" %}
 {#
 /**
  * @file
@@ -16,41 +16,9 @@
  */
 #}
 {% block content %}
-  <!-- Logo -->
-  {% if logo_svg %}
-    <div class="container">
-      <div class="brand col-xs-9 col-sm-5 col-md-4 col-lg-12"
-        property="publisher"
-        typeof="GovernmentOrganization">
-        <a class="logo navbar-btn"
-          href="https://canada.ca{{ path('<front>') }}"
-          title="{{ 'Home'|t }}"
-          rel="home">
-          <img src="{{ logo_svg }}" alt="{{ 'Home'|t }}" />
-        </a>
-      </div>
-    </div>
-  {% endif %}
-
-  <!-- Site Name -->
-  {% if site_name %}
-    <div class="site-name">
-      <div class="container">
-        <a class="name navbar-brand h2 mrgn-tp-sm mrgn-bttm-sm"
-          href="{{ path('<front>') }}"
-          title="{{ 'Home'|t }}"
-          rel="home">
-          {{ site_name }}
-        </a>
-      </div>
-    </div>
-  {% endif %}
-
-  <!-- Site Slogan -->
-  {% if site_slogan %}
-    <p class="navbar-text">
-      {{ site_slogan }}
-    </p>
-  {% endif %}
-
+  <div class="brand col-xs-5 col-md-4">
+    <a href="https://canada.ca/{{ language_prefix }}.html">
+      <img id="header-logo" src='{{ logo_svg }}' alt="{{ 'Government of Canada'|t }}" />
+    </a>
+  </div>
 {% endblock %}
