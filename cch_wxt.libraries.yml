@@ -2,3 +2,10 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+  js:
+    src/js/ssocca.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
