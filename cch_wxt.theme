@@ -311,6 +311,6 @@ function getBlockContentByMachineName($machine_name) {
 function cch_wxt_preprocess_input(&$variables) {
   // Set a placeholder for all search form elements.
   if ($variables['attributes']['type'] == 'search') {
-    $variables['attributes']['placeholder'] = t('Search the Consumer Hub');
+    //$variables['attributes']['placeholder'] = t('Search the Consumer Hub');
   }
 }
