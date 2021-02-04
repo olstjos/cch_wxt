@@ -1,4 +1,6 @@
 <?php
+
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
@@ -47,6 +49,7 @@ function cch_wxt_preprocess(&$variables, $hook) {
   $variables['base_path'] = base_path();
 }
 
+
 /**
  * Implements template_preprocess_views_view_field().
  */
@@ -64,7 +67,11 @@ function cch_wxt_preprocess_views_view_field(&$variables) {
         $isOtherLang = $node->field_link_other_lang->getString() == 1;
 
         if ($isOtherLang) {
-          $variables['output'] .= sprintf(' [%s]', t('link in other language'));
+          $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+          $variables['output'] .= sprintf(' (%s)', 'French only');
+          if ($language == 'fr') {
+            $variables['output'] .= sprintf(' (%s)', 'en anglais seulement');
+          }
           $variables['output'] = \Drupal\Core\Render\Markup::create($variables['output']);
         }
         break;
@@ -156,6 +163,7 @@ function cch_wxt_preprocess_breadcrumb(&$variables) {
   */
 }
 
+
 /**
  * Implements template_preprocess_field().
  */
@@ -165,6 +173,7 @@ function cch_wxt_preprocess_field__node__field_sector(&$variables) {
   //\Drupal::messenger()->addMessage('keys:' . print_r(dump($element['#items'], TRUE)), TRUE);//Very good for debugging
 
 }
+
 
 /**
  * Implements template_preprocess_views_view().
