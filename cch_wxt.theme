@@ -68,9 +68,11 @@ function cch_wxt_preprocess_views_view_field(&$variables) {
 
         if ($isOtherLang) {
           $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-          $variables['output'] .= sprintf(' (%s)', 'French only');
           if ($language == 'fr') {
             $variables['output'] .= sprintf(' (%s)', 'en anglais seulement');
+          }
+          else {
+            $variables['output'] .= sprintf(' (%s)', 'French only');
           }
           $variables['output'] = \Drupal\Core\Render\Markup::create($variables['output']);
         }
