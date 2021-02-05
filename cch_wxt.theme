@@ -22,6 +22,7 @@ function cch_wxt_theme_suggestions_block_alter(&$suggestions, $variables) {
     $suggestion = str_replace('cch_wxt_', 'wxt_bootstrap_', $suggestion);
     //echo "<h1>$suggestion</h1>";
   }
+  return;
   \Drupal::messenger()->addMessage('keys:' . print_r(dump($suggestions, TRUE)), TRUE);//Very good for debugging.
   $current_route = \Drupal::routeMatch()->getRouteName();
   if ($current_route == 'view.sector_browse.page_2') {
