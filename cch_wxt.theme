@@ -22,12 +22,12 @@ function cch_wxt_theme_suggestions_block_alter(&$suggestions, $variables) {
     $suggestion = str_replace('cch_wxt_', 'wxt_bootstrap_', $suggestion);
     //echo "<h1>$suggestion</h1>";
   }
-
+  \Drupal::messenger()->addMessage('keys:' . print_r(dump($suggestions, TRUE)), TRUE);//Very good for debugging.
   $current_route = \Drupal::routeMatch()->getRouteName();
   if ($current_route == 'view.sector_browse.page_2') {
     $path = \Drupal::request()->getpathInfo();
     $arg  = explode('/',$path);
-    if (isset($arg[5]) && is_numeric($arg[5])) {
+    if (isset($arg[4]) && is_numeric($arg[5])) {
       $tid = $arg[5];
     }
     else {
@@ -39,7 +39,7 @@ function cch_wxt_theme_suggestions_block_alter(&$suggestions, $variables) {
         $term = \Drupal\taxonomy\Entity\Term::load($tid);
       }
     }
-  \Drupal::messenger()->addMessage('keys:' . print_r(dump($suggestions, TRUE)), TRUE);//Very good for debugging.
+
   }
 }
 
