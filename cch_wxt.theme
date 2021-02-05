@@ -22,6 +22,25 @@ function cch_wxt_theme_suggestions_block_alter(&$suggestions, $variables) {
     $suggestion = str_replace('cch_wxt_', 'wxt_bootstrap_', $suggestion);
     //echo "<h1>$suggestion</h1>";
   }
+
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  if ($current_route == 'view.sector_browse.page_2') {
+    $path = \Drupal::request()->getpathInfo();
+    $arg  = explode('/',$path);
+    if (isset($arg[5]) && is_numeric($arg[5])) {
+      $tid = $arg[5];
+    }
+    else {
+      // This throws a warning for some reason, but is a good fallback.
+      $tid = \Drupal::request()->get('arg_0');
+    }
+    if (is_numeric($tid)) {
+      if (isset($form['tid'])) {
+        $term = \Drupal\taxonomy\Entity\Term::load($tid);
+      }
+    }
+  \Drupal::messenger()->addMessage('keys:' . print_r(dump($suggestions, TRUE)), TRUE);//Very good for debugging.
+  }
 }
 
 /**
