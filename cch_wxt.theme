@@ -84,10 +84,18 @@ function cch_wxt_preprocess_views_view_field(&$variables) {
     {
       case 'title':
         $node = Node::load($nid);
-        $isOtherLang = $node->field_link_other_lang->getString() == 1;
+        $isOtherLang = (bool) $node->field_link_other_lang->first()->getValue();
+        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        if ($node->hasTranslation('fr') && $node->hasTranslation('en')) {
+          $otherLang = 'fr';
+          if ($language == 'fr') {
+            $otherLang = 'en';
+          }
+          $node = $node->getTranslation($otherLang);
+          $isOtherLang = $node->field_link_other_lang->getString();
+        }
 
         if ($isOtherLang) {
-          $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
           if ($language == 'fr') {
             $variables['output'] .= sprintf(' (%s)', 'en anglais seulement');
           }
