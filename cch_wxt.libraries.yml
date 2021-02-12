@@ -9,3 +9,9 @@ global-styling:
     - core/drupal
     - core/drupalSettings
 
+searchtheconsumerhub:
+  js:
+    src/js/searchtheconsumerhub.js: {}
+  dependencies:
+    - cch_wxt/global-styling
+
