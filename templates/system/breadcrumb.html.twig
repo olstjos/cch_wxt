@@ -18,7 +18,11 @@
         {% for item in breadcrumb %}
           <li {{ item.attributes }}>
             {% if item.url %}
+              {% if item.text|trim =='Results' %}
+              {{ item.text|t }}
+              {% else %}
               <a href="{{ item.url }}">{{ item.text }}</a>
+              {% endif %}
             {% else %}
               {% if item.text|trim =='Search' %}
               {{'Results'|t}}
